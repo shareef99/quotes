@@ -1,8 +1,38 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
     purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            animation: {
+                fadeIn: "fadeIn 1s ease",
+            },
+            keyframe: {
+                fadeIn: {
+                    "50%": {
+                        opacity: "0.5",
+                    },
+                },
+            },
+            colors: {
+                blueGray: colors.blueGray,
+                coolGray: colors.coolGray,
+                trueGray: colors.trueGray,
+                warmGray: colors.warmGray,
+                orange: colors.orange,
+                amber: colors.amber,
+                lime: colors.lime,
+                emerald: colors.emerald,
+                teal: colors.teal,
+                cyan: colors.cyan,
+                lightBlue: colors.lightBlue,
+                violet: colors.violet,
+                fuchsia: colors.fuchsia,
+                rose: colors.rose,
+            },
+        },
+
         screens: {
             sm: "520px",
             md: "768px",
@@ -18,7 +48,7 @@ module.exports = {
             "9/10": "90%",
             full: "100%",
         },
-        maxWidth: {
+        minWidth: {
             0: "0",
             "1/4": "25%",
             "1/2": "50%",
