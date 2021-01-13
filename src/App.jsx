@@ -7,30 +7,30 @@ function App() {
     const [author, setAuthor] = useState(null);
     const [tags, setTags] = useState([]);
     const colors = [
-        { id: 1, color: "blueGray" },
-        { id: 2, color: "coolGray" },
-        { id: 3, color: "gray" }, //O
-        { id: 4, color: "trueGray" },
-        { id: 5, color: "warmGray" },
-        { id: 6, color: "red" }, //O
-        { id: 7, color: "orange" },
-        { id: 8, color: "amber" },
-        { id: 9, color: "yellow" }, //O
-        { id: 10, color: "lime" },
-        { id: 11, color: "green" }, //o
-        { id: 12, color: "emerald" },
-        { id: 13, color: "teal" },
-        { id: 14, color: "cyan" },
-        { id: 15, color: "lightBlue" },
-        { id: 16, color: "blue" }, //O
-        { id: 17, color: "indigo" }, //O
-        { id: 18, color: "violet" },
-        { id: 19, color: "purple" }, //O
-        { id: 20, color: "fuchsia" },
-        { id: 21, color: "pink" }, //O
-        { id: 22, color: "rose" },
+        "blueGray",
+        "coolGray",
+        "trueGray",
+        "gray",
+        "warmGray",
+        "red",
+        "orange",
+        "amber",
+        "yellow",
+        "lime",
+        "green",
+        "emerald",
+        "teal",
+        "cyan",
+        "lightBlue",
+        "blue",
+        "indigo",
+        "violet",
+        "purple",
+        "fuchsia",
+        "pink",
+        "rose",
     ];
-    const [color, setColor] = useState(colors[0].color);
+    const [color, setColor] = useState(colors[0]);
 
     const getRandomQuoteAsync = async () => {
         const response = await axios.get("https://api.quotable.io/random");
@@ -47,12 +47,12 @@ function App() {
     const handleNextQuote = async () => {
         await getRandomQuoteAsync();
         let randomNumber = Math.floor(Math.random() * colors.length);
-        setColor(colors[randomNumber].color);
+        setColor(colors[randomNumber]);
     };
     return (
         <>
             <section
-                className={`flex items-center justify-center h-screen transition-colors duration-500 delay-75 ease-in bg-${color}-300`}
+                className={`flex flex-col items-center justify-center h-screen transition-colors duration-500 delay-75 ease-in bg-${color}-300`}
             >
                 <div
                     id="quote-box"
@@ -99,6 +99,18 @@ function App() {
                         >
                             Tweet
                         </a>
+
+                        <script
+                            src="https://platform.linkedin.com/in.js"
+                            type="text/javascript"
+                        >
+                            lang: en_US
+                        </script>
+                        <script
+                            type="IN/Share"
+                            data-url="https://www.linkedin.com"
+                        ></script>
+
                         <button
                             id="new-quote"
                             onClick={handleNextQuote}
@@ -109,7 +121,17 @@ function App() {
                         </button>
                     </div>
                 </div>
-                <div className="bg-blue"></div>
+                <div className={`pt-6 text-${color}-800 text-lg sm:text-xl`}>
+                    <p>
+                        <a
+                            href="https://portfolio.shareef.vercel.app"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            ~Shareef
+                        </a>{" "}
+                    </p>
+                </div>
             </section>
         </>
     );
