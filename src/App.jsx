@@ -24,7 +24,7 @@ function App() {
         {
             id: 15,
             bgColor: "bg-lightBlue-500",
-            textColor: "text-lightBlue-500",
+            textColor: "text-lightBlue-300",
         },
         { id: 16, bgColor: "bg-blue-300", textColor: "text-blue-500" },
         { id: 17, bgColor: "bg-indigo-300", textColor: "text-indigo-500" },
@@ -34,8 +34,8 @@ function App() {
         { id: 21, bgColor: "bg-pink-300", textColor: "text-pink-500" },
         { id: 22, bgColor: "bg-rose-300", textColor: "text-rose-500" },
     ];
-    const [bgColor, setBgColor] = useState(colors[0]);
-    const [textColor, setTextColor] = useState(colors[0]);
+    const [bgColor, setBgColor] = useState(colors[0].bgColor);
+    const [textColor, setTextColor] = useState(colors[0].textColor);
 
     const getRandomQuoteAsync = async () => {
         const response = await axios.get("https://api.quotable.io/random");
@@ -95,19 +95,8 @@ function App() {
                             className={`focus:outline-none ${bgColor} py-1 px-2 rounded-md`}
                         >
                             Tweet
-                        </a>
-
-                        <script
-                            src="https://platform.linkedin.com/in.js"
-                            type="text/javascript"
-                        >
-                            lang: en_US
-                        </script>
-                        <script
-                            type="IN/Share"
-                            data-url="https://www.linkedin.com"
-                        ></script>
-
+                        </a>   
+                                      
                         <button
                             id="new-quote"
                             onClick={handleNextQuote}
